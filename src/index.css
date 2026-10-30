@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@layer base {
+  :root,
+  [data-theme="white-darkgreen"] {
+    --bg-page: #f8faf9;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #f1f5f3;
+    --bg-surface-subtle: #e6ede9;
+    --bg-surface-card: #ffffff;
+    
+    --text-primary: #0f1f17;
+    --text-secondary: #2d4538;
+    --text-muted: #527060;
+    
+    /* White and Dark Green Primary Aesthetic */
+    --accent-primary: #064e3b; /* Deep rich forest / dark green */
+    --accent-primary-hover: #022c22;
+    --accent-soft: #ecfdf5;
+    --accent-soft-border: #a7f3d0;
+    --accent-text: #064e3b;
+    --accent-contrast: #ffffff;
+    --accent-glow: rgba(6, 78, 59, 0.25);
+    
+    --border-subtle: #e2e8e4;
+    --border-strong: #cbd5cf;
+    --border-accent: #064e3b;
+
+    --card-shadow: 0 4px 20px -2px rgba(6, 78, 59, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+    --card-shadow-hover: 0 16px 32px -4px rgba(6, 78, 59, 0.18), 0 4px 12px -2px rgba(6, 78, 59, 0.06);
+    --topbar-bg: rgba(255, 255, 255, 0.92);
+    --tag-bg: #ecfdf5;
+    --tag-text: #064e3b;
+    --scrollbar-thumb: #94a89d;
+  }
+
+  [data-theme="dark-forest"] {
+    --bg-page: #061611;
+    --bg-surface: #0b221a;
+    --bg-surface-elevated: #112e24;
+    --bg-surface-subtle: #193f32;
+    --bg-surface-card: #0d271e;
+    
+    --text-primary: #f0fdf4;
+    --text-secondary: #bbf7d0;
+    --text-muted: #86efac;
+    
+    /* Dark Forest & Mint Accents */
+    --accent-primary: #10b981;
+    --accent-primary-hover: #059669;
+    --accent-soft: #14382c;
+    --accent-soft-border: #047857;
+    --accent-text: #86efac;
+    --accent-contrast: #061611;
+    --accent-glow: rgba(16, 185, 129, 0.35);
+    
+    --border-subtle: #1b4536;
+    --border-strong: #275d4a;
+    --border-accent: #10b981;
+
+    --card-shadow: 0 4px 25px -2px rgba(0, 0, 0, 0.7), 0 2px 8px -1px rgba(0, 0, 0, 0.5);
+    --card-shadow-hover: 0 16px 36px -4px rgba(16, 185, 129, 0.28), 0 4px 12px -2px rgba(0, 0, 0, 0.6);
+    --topbar-bg: rgba(6, 22, 17, 0.92);
+    --tag-bg: #14382c;
+    --tag-text: #6ee7b7;
+    --scrollbar-thumb: #235543;
+  }
+
+  /* Seamless dynamic theme transition rule */
+  html.theme-transitioning,
+  html.theme-transitioning *,
+  html.theme-transitioning *::before,
+  html.theme-transitioning *::after {
+    transition: background-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                stroke 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                fill 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  body {
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* Tabular figures for pricing and quantities */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Product image hover scaling up by exactly 5% using CSS transform */
+article:hover img,
+.product-card:hover .product-card-img,
+article.group:hover img {
+  transform: scale(1.05) !important;
+}
+
+.product-card-img,
+article img {
+  transform: scale(1);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transform-origin: center center;
+  will-change: transform;
+}
+

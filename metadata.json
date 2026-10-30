@@ -1,0 +1,6 @@
+{
+  "name": "AURA - Modern Full-Stack E-Commerce",
+  "description": "An e-commerce platform built with React, Node.js architecture, and MongoDB data models featuring dual dynamic theme switching (Light-Silver & Ista Green, Dark-Black & Pink), product filtering, interactive cart, and checkout.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
